@@ -1,11 +1,12 @@
 ::=========================================================================================
-:: Build application APL WS using AplBuilder. It can even build itself from the sources 
+:: Build application WS using AplBuilder. It can even build itself from the sources 
 ::=========================================================================================
-:: Project C:\Data\SoftForge\AplBuilder\aplbuilder.exe
-::aplbuilder.exe appname="house-calc"  bldroot="C:\Data\SoftForge\HouseCalc" srcroot="C:\Data\SoftForge\HouseCalc" 
-aplbuilder.exe appname="house-calc"  bldroot="C:\Softforge\HouseCalc"  srcroot="C:\Softforge\HouseCalc"  
 
-:: Released 
-::C:\Data\Builds\aplbuilder.exe appname="house-calc"  bldroot="c:\Data\Builds" srcroot="C:\Data\SoftForge\HouseCalc" 
+:: Build WS using central installation of AplBuilder and fixed build and source roots
+::C:\Data\SoftForge\AplBuilder\aplbuilder.exe appname="house-calc"  bldroot="C:\Data\SoftForge\HouseCalc" srcroot="C:\Data\SoftForge\HouseCalc"
 
-::"C:\Program Files (x86)\Dyalog\Dyalog APL 14.1 Unicode\dyalog.exe" "C:\Data\SoftForge\AplBuilder\aplbuilder.dws" appname="newapldskapp" bldroot="c:\Data\Builds" srcroot="C:\Data\SoftForge\NewAplAppDsk" 
+:: Build WS using current project AplBuilder installation and project path as build and source roots "%~dp0"
+aplbuilder.exe appname="house-calc"  bldroot=%~dp0  srcroot=%~dp0
+
+:: Debug build procedure with AplBuilder WS instead of executable
+::"C:\Program Files (x86)\Dyalog\Dyalog APL 14.1 Unicode\dyalog.exe" -x "C:\Data\SoftForge\AplBuilder\aplbuilder.dws" appname="newapldskapp" bldroot="c:\Data\Builds" srcroot="C:\Data\SoftForge\NewAplAppDsk" 
